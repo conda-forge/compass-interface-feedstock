@@ -1,4 +1,4 @@
-{% set version = "0.22.3" %}
+{% set version = "0.22.4" %}
 
 package:
   name: compass-interface
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/the-scouts/compass-interface/releases/download/v{{ version }}/compass-interface-{{ version }}.tar.gz
-  sha256: 7a32e0a3f40babd8b0d3b1d70b585726c123ae53a55d2838829303579b333833
+  sha256: 6558ee13a207cec0b3251e96bd37fb33b670254f74ee05a8339d04f7197f2d37
 
 build:
   number: 0
