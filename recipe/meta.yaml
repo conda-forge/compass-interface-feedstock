@@ -20,6 +20,8 @@ outputs:
       host:
         - python >=3.9
         - build
+        - setuptools
+        - wheel
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -38,6 +40,8 @@ outputs:
       host:
         - python >=3.9
         - build
+        - setuptools
+        - wheel
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -54,6 +58,8 @@ outputs:
       host:
         - python >=3.9
         - build
+        - setuptools
+        - wheel
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
