@@ -46,10 +46,10 @@ outputs:
         - cryptography
         - python-jose
         - python-multipart
-      test:
-        imports:
-          - compass
-          - compass.core
+    test:
+      imports:
+        - compass
+        - compass.core
 
   # tabular interface package
   - name: compass-interface-pandas
