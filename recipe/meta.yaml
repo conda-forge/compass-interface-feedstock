@@ -11,7 +11,7 @@ source:
 build:
   number: 3
   noarch: python
-  script: {{ PYTHON }} -m build .
+  script: python -m build .
 
 outputs:
   # web api package
