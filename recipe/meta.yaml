@@ -29,10 +29,10 @@ outputs:
         - cryptography
         - python-jose
         - python-multipart
-      test:
-        imports:
-          - compass
-          - compass.core
+    test:
+      imports:
+        - compass
+        - compass.core
 
   # tabluar interface package
   - name: compass-interface-pandas
@@ -47,10 +47,10 @@ outputs:
         - compass-interface-core >=0.20.0
         - pandas
         - pyarrow
-      test:
-        imports:
-          - compass
-          - compass.core
+    test:
+      imports:
+        - compass
+        - compass.core
 
   # omni package
   - name: compass-interface
@@ -65,10 +65,10 @@ outputs:
         - compass-interface-core >=0.20.0
         - {{ pin_subpackage('compass-interface-http', exact=True) }}
         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
-      test:
-        imports:
-          - compass
-          - compass.core
+    test:
+      imports:
+        - compass
+        - compass.core
 
 about:
   home: https://github.com/the-scouts/compass-interface
