@@ -9,16 +9,32 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 5
+  number: 6
 #   noarch: python
 #   script: python -m pip install . -vv
 
 outputs:
+  # omni package
+  - name: compass-interface
+    requirements:
+      host:
+        - python >=3.9
+      run:
+        - {{ pin_subpackage('compass-interface-http', exact=True) }}
+    #    - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
+    test:
+      imports:
+        - compass
+        - compass.core
+#    about:
+#      description:
+
   # web api package
   - name: compass-interface-http
+    noarch: python
     build:
       noarch: python
-      script: python -m pip install compass -vv
+      script: python -m pip install . -vv
     requirements:
       host:
         - python >=3.9
@@ -35,47 +51,35 @@ outputs:
         - compass
         - compass.core
 
-#   # tabluar interface package
-#   - name: compass-interface-pandas
-#     build:
-#       noarch: python
-#       script: python -m pip install compass -vv
-#     requirements:
-#       host:
-#         - python >=3.9
-#         - pip
-#       run:
-#         - python >=3.9
-#         - compass-interface-core >=0.20.0
-#         - pandas
-#         - pyarrow
-#     test:
-#       imports:
-#         - compass
-#         - compass.core
-
-  # omni package
-  - name: compass-interface
-    requirements:
-      host:
-        - python >=3.9
-        - pip
-      run:
-        - python >=3.9
-        - compass-interface-core >=0.20.0
-        - {{ pin_subpackage('compass-interface-http', exact=True) }}
-#         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
-    test:
-      imports:
-        - compass
-        - compass.core
+  #   # tabluar interface package
+  #   - name: compass-interface-pandas
+  #     noarch: python
+  #     build:
+  #       noarch: python
+  #       script: python -m pip install compass -vv
+  #     requirements:
+  #       host:
+  #         - python >=3.9
+  #         - pip
+  #       run:
+  #         - python >=3.9
+  #         - compass-interface-core >=0.20.0
+  #         - pandas
+  #         - pyarrow
+  #     test:
+  #       imports:
+  #         - compass
+  #         - compass.core
 
 about:
   home: https://github.com/the-scouts/compass-interface
   license: MIT
   license_file: LICENSE
   summary: The unofficial API to the TSA Compass membership database
+#  description: |
+#    longer description
   dev_url: https://github.com/the-scouts/compass-interface
+#  doc_url: 
 
 extra:
   recipe-maintainers:
