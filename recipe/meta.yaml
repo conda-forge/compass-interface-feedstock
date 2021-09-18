@@ -17,9 +17,7 @@ outputs:
   # web api package
   - name: compass-interface-http
     requirements:
-      host:
-        - python >=3.9
-        - build
+      host: ["python >=3.9", "build", "wheel", "setuptools"]
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -35,9 +33,7 @@ outputs:
   # tabluar interface package
   - name: compass-interface-pandas
     requirements:
-      host:
-        - python >=3.9
-        - build
+      host: ["python >=3.9", "build", "wheel", "setuptools"]
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -51,9 +47,7 @@ outputs:
   # omni package
   - name: compass-interface
     requirements:
-      host:
-        - python >=3.9
-        - build
+      host: ["python >=3.9", "build", "wheel", "setuptools"]
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
