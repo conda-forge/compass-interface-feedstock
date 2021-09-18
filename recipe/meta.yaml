@@ -9,16 +9,16 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 4
-  noarch: python
-  script: python -m pip install . -vv
+  number: 5
+#   noarch: python
+#   script: python -m pip install . -vv
 
 outputs:
   # web api package
   - name: compass-interface-http
     build:
       noarch: python
-      script: python -m pip install . -vv
+      script: python -m pip install compass -vv
     requirements:
       host:
         - python >=3.9
@@ -35,24 +35,24 @@ outputs:
         - compass
         - compass.core
 
-  # tabluar interface package
-  - name: compass-interface-pandas
-    build:
-      noarch: python
-      script: python -m pip install . -vv
-    requirements:
-      host:
-        - python >=3.9
-        - pip
-      run:
-        - python >=3.9
-        - compass-interface-core >=0.20.0
-        - pandas
-        - pyarrow
-    test:
-      imports:
-        - compass
-        - compass.core
+#   # tabluar interface package
+#   - name: compass-interface-pandas
+#     build:
+#       noarch: python
+#       script: python -m pip install compass -vv
+#     requirements:
+#       host:
+#         - python >=3.9
+#         - pip
+#       run:
+#         - python >=3.9
+#         - compass-interface-core >=0.20.0
+#         - pandas
+#         - pyarrow
+#     test:
+#       imports:
+#         - compass
+#         - compass.core
 
   # omni package
   - name: compass-interface
@@ -64,7 +64,7 @@ outputs:
         - python >=3.9
         - compass-interface-core >=0.20.0
         - {{ pin_subpackage('compass-interface-http', exact=True) }}
-        - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
+#         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
     test:
       imports:
         - compass
