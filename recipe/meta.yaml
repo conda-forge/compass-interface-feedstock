@@ -10,7 +10,7 @@ source:
   sha256: 3088b19c60e43512aaa139e2982830977a14564a304983d46a6e9ac019483cd5
 
 build:
-  number: 9
+  number: 0
 
 outputs:
   # omni package
