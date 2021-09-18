@@ -9,7 +9,7 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,13 +19,14 @@ requirements:
     - pip
   run:
     - python >=3.9
-    - compass-interface-core >=0.8.0
+    - compass-interface-core >=0.20.0
+    - fastapi
+    - cryptography
+    - python-jose
+    - python-multipart
+    # reports
     - pandas
     - pyarrow
-    - fastapi
-    - python-jose
-    - aioredis
-    - python-multipart
 
 test:
   imports:
