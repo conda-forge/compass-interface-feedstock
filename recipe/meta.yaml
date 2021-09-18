@@ -9,7 +9,7 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -20,17 +20,47 @@ requirements:
   run:
     - python >=3.9
     - compass-interface-core >=0.20.0
-    - fastapi
-    - cryptography
-    - python-jose
-    - python-multipart
-    # reports
-    - pandas
-    - pyarrow
 
 test:
   imports:
     - compass
+    - compass.core
+
+outputs:
+  # base package (just core)
+  - name: compass-interface-base
+  
+  # web api package
+  - name: compass-interface-http
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('compass-interface-base', exact=True) }}
+        - fastapi
+        - cryptography
+        - python-jose
+        - python-multipart
+
+  # tabluar interface package
+  - name: compass-interface-pandas
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('compass-interface-base', exact=True) }}
+        - pandas
+        - pyarrow
+
+  # omni package
+  - name: compass-interface
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('compass-interface', exact=True) }}
+        - {{ pin_subpackage('compass-interface-http', exact=True) }}
+        - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
 
 about:
   home: https://github.com/the-scouts/compass-interface
