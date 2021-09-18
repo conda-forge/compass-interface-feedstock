@@ -9,13 +9,15 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 7
+  number: 8
 #   noarch: python
 #   script: python -m pip install . -vv
 
 outputs:
   # omni package
   - name: compass-interface
+    build:
+      noarch: python
     requirements:
       host:
         - python >=3.9
@@ -33,7 +35,7 @@ outputs:
   - name: compass-interface-http
     build:
       noarch: python
-      script: python -m pip install . -vv
+      script: python -m pip install . --no-deps --ignore-installed -vv
     requirements:
       host:
         - python >=3.9
