@@ -9,7 +9,7 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 6
+  number: 7
 #   noarch: python
 #   script: python -m pip install . -vv
 
@@ -31,7 +31,6 @@ outputs:
 
   # web api package
   - name: compass-interface-http
-    noarch: python
     build:
       noarch: python
       script: python -m pip install . -vv
