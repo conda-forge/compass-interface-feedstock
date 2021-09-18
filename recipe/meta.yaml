@@ -1,4 +1,4 @@
-{% set version = "0.24.1" %}
+{% set version = "0.25.0" %}
 {% set minimum_core = "0.20.0" %}
 
 package:
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/the-scouts/compass-interface/releases/download/v{{ version }}/compass-interface-{{ version }}.tar.gz
-  sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
+  sha256: 3088b19c60e43512aaa139e2982830977a14564a304983d46a6e9ac019483cd5
 
 build:
-  number: 9
+  number: 0
 
 outputs:
   # omni package
@@ -46,10 +46,10 @@ outputs:
         - cryptography
         - python-jose
         - python-multipart
-      test:
-        imports:
-          - compass
-          - compass.core
+    test:
+      imports:
+        - compass
+        - compass.core
 
   # tabular interface package
   - name: compass-interface-pandas
