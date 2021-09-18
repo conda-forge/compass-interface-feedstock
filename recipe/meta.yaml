@@ -13,54 +13,53 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
-requirements:
-  host:
-    - python >=3.9
-    - pip
-  run:
-    - python >=3.9
-    - compass-interface-core >=0.20.0
-
-test:
-  imports:
-    - compass
-    - compass.core
-
 outputs:
-  # base package (just core)
-  - name: compass-interface-base
-  
   # web api package
   - name: compass-interface-http
     requirements:
       host:
-        - python
+        - python >=3.9
       run:
-        - {{ pin_subpackage('compass-interface-base', exact=True) }}
+        - python >=3.9
+        - compass-interface-core >=0.20.0
         - fastapi
         - cryptography
         - python-jose
         - python-multipart
+      test:
+        imports:
+          - compass
+          - compass.core
 
   # tabluar interface package
   - name: compass-interface-pandas
     requirements:
       host:
-        - python
+        - python >=3.9
       run:
-        - {{ pin_subpackage('compass-interface-base', exact=True) }}
+        - python >=3.9
+        - compass-interface-core >=0.20.0
         - pandas
         - pyarrow
+      test:
+        imports:
+          - compass
+          - compass.core
 
   # omni package
   - name: compass-interface
     requirements:
       host:
-        - python
+        - python >=3.9
       run:
-        - {{ pin_subpackage('compass-interface-base', exact=True) }}
+        - python >=3.9
+        - compass-interface-core >=0.20.0
         - {{ pin_subpackage('compass-interface-http', exact=True) }}
         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
+      test:
+        imports:
+          - compass
+          - compass.core
 
 about:
   home: https://github.com/the-scouts/compass-interface
