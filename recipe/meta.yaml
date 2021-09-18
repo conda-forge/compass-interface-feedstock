@@ -9,9 +9,9 @@ source:
   sha256: 4bc2085c29ac8645fd859c1a0cbcd51f0216f6ec260da42aaac49e89b8dda807
 
 build:
-  number: 2
+  number: 3
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m build .
 
 outputs:
   # web api package
@@ -19,6 +19,7 @@ outputs:
     requirements:
       host:
         - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -36,6 +37,7 @@ outputs:
     requirements:
       host:
         - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -51,6 +53,7 @@ outputs:
     requirements:
       host:
         - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
