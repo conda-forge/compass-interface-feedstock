@@ -11,13 +11,15 @@ source:
 build:
   number: 3
   noarch: python
-  script: python -m build .
+  script: python -m build --skip-dependency-check --no-isolation .
 
 outputs:
   # web api package
   - name: compass-interface-http
     requirements:
-      host: ["python >=3.9", "build", "wheel", "setuptools"]
+      host:
+        - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -33,7 +35,9 @@ outputs:
   # tabluar interface package
   - name: compass-interface-pandas
     requirements:
-      host: ["python >=3.9", "build", "wheel", "setuptools"]
+      host:
+        - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
@@ -47,7 +51,9 @@ outputs:
   # omni package
   - name: compass-interface
     requirements:
-      host: ["python >=3.9", "build", "wheel", "setuptools"]
+      host:
+        - python >=3.9
+        - build
       run:
         - python >=3.9
         - compass-interface-core >=0.20.0
