@@ -58,7 +58,7 @@ outputs:
       host:
         - python
       run:
-        - {{ pin_subpackage('compass-interface', exact=True) }}
+        - {{ pin_subpackage('compass-interface-base', exact=True) }}
         - {{ pin_subpackage('compass-interface-http', exact=True) }}
         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
 
