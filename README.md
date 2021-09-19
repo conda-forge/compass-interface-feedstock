@@ -30,6 +30,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-compass--interface-green.svg)](https://anaconda.org/conda-forge/compass-interface) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/compass-interface.svg)](https://anaconda.org/conda-forge/compass-interface) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/compass-interface.svg)](https://anaconda.org/conda-forge/compass-interface) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/compass-interface.svg)](https://anaconda.org/conda-forge/compass-interface) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-compass--interface--http-green.svg)](https://anaconda.org/conda-forge/compass-interface-http) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/compass-interface-http.svg)](https://anaconda.org/conda-forge/compass-interface-http) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/compass-interface-http.svg)](https://anaconda.org/conda-forge/compass-interface-http) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/compass-interface-http.svg)](https://anaconda.org/conda-forge/compass-interface-http) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-compass--interface--pandas-green.svg)](https://anaconda.org/conda-forge/compass-interface-pandas) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/compass-interface-pandas.svg)](https://anaconda.org/conda-forge/compass-interface-pandas) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/compass-interface-pandas.svg)](https://anaconda.org/conda-forge/compass-interface-pandas) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/compass-interface-pandas.svg)](https://anaconda.org/conda-forge/compass-interface-pandas) |
 
 Installing compass-interface
 ============================
@@ -41,10 +43,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `compass-interface` can be installed with:
+Once the `conda-forge` channel has been enabled, `compass-interface, compass-interface-http, compass-interface-pandas` can be installed with:
 
 ```
-conda install compass-interface
+conda install compass-interface compass-interface-http compass-interface-pandas
 ```
 
 It is possible to list all of the versions of `compass-interface` available on your platform with:
