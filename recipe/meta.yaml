@@ -10,7 +10,7 @@ source:
   sha256: 5d4924a045ac2926eb75e02105b6c156f1a5118b7e84899571253591025c2c5d
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   # omni package
@@ -19,11 +19,13 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.9
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage('compass-interface-http', exact=True) }}
         - {{ pin_subpackage('compass-interface-pandas', exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - compass
         - compass.core
@@ -37,16 +39,18 @@ outputs:
       script: python -m pip install . --no-deps --ignore-installed -vv
     requirements:
       host:
-        - python >=3.9
+        - python {{ python_min }}
         - pip
       run:
-        - python >=3.9
+        - python >={{ python_min }}
         - compass-interface-core >={{ minimum_core }}
         - fastapi
         - cryptography
         - python-jose
         - python-multipart
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - compass
         - compass.core
@@ -58,14 +62,16 @@ outputs:
       script: python -m pip install . --no-deps --ignore-installed -vv
     requirements:
       host:
-        - python >=3.9
+        - python {{ python_min }}
         - pip
       run:
-        - python >=3.9
+        - python >={{ python_min }}
         - compass-interface-core >={{ minimum_core }}
         - pandas
         - pyarrow
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - compass
         - compass.core
